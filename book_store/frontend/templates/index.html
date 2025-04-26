@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Book Store</title>
+</head>
+<body>
+  <h1>Book Store</h1>
+  <h2>Available Books</h2>
+  <form method="post">
+    <select name="book_id">
+      {% for book in books %}
+      <option value="{{ book['id'] }}">{{ book['title'] }} by {{ book['author'] }}</option>
+      {% endfor %}
+    </select>
+    <button type="submit">Order</button>
+  </form>
+
+  <h2>Orders</h2>
+  <ul>
+    {% for order in orders %}
+      <li>Ordered Book ID: {{ order['book_id'] }}, Title: {{ order['title'] }}</li>
+    {% endfor %}
+  </ul>
+</body>
+</html>

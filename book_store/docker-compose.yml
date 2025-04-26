@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  book_service:
+    build: ./book_service
+    ports:
+      - "5001:5001"
+
+  order_service:
+    build: ./order_service
+    ports:
+      - "5002:5002"
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "5000:5000"
+    depends_on:
+      - book_service
+      - order_service
